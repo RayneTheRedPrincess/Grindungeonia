@@ -1,25 +1,17 @@
 # Current State
 
-## G0.0 Project Bootstrap: VERIFIED
+## G0.0 Bootstrap: VERIFIED
+On 2026-10-08 the devkit checksum list passed 166/166; devkitARM 16.1.0, Butano 21.9.0, bundled mGBA headless capture, 240x160 PNG output and the G0.0 input test were verified.
 
-Verified 2026-10-08 UTC in the active development environment:
-- Development kit package checksum list: 166/166 entries passed.
-- devkitARM: GCC/G++ 16.1.0 executes.
-- Butano: 21.9.0 builds with the bundled toolchain.
-- Bundled mGBA 0.10.5 libretro core executes GBA ROMs headlessly.
-- Native capture pipeline outputs 240x160 PNG frames.
-- Kit smoke test rebuilt Butano's sprites example and verified scripted input changes output.
-- `Grindungeonia.gba` builds and boots.
-- G0.0 screen displays GRINDUNGEONIA / G0.0 / DEV BUILD.
-- D-pad moves the on-screen input marker; A changes the background, verified by scripted capture.
+## Direction: CANONICAL
+Grindungeonia is an original GBA-first hub-and-modular-dungeon action RPG with Zenonia-like handheld combat presentation and Path-of-Exile-inspired classes, passive network, skills and itemization. No overworld. One hub and expandable dungeon room-piece library. All content original.
 
-## Direction Pivot: CANONICAL
+## G0 First Combat/Visual Slice: PARTIALLY VERIFIED
+- Built a 101 KB Grindungeonia.gba using Butano 21.9.0 and devkitARM 16.1.0 on 2026-10-08.
+- Booted under bundled mGBA core; inspected native 240x160 screenshot.
+- Screenshot confirms crypt floor, wall borders, obstacles, player, enemy and UI rendered.
+- Source implements D-pad movement, directional A strike, enemy HP, simple damage and restart input. Gameplay interactions are NOT YET verified with scripted input captures.
+- All artwork is diagnostic and NOT final-quality.
+- Known gaps: proper animated player sprites, obstacle collision, moving enemy AI, HUD HP/resource, death feedback, enemy packs, loot/equip and generated item improvement.
 
-On 2026-10-08 the project target changed before G0 architecture was committed:
-- Grindungeonia is now a GBA-first loot/buildcraft ARPG rather than a Sephiria-like action game with ARPG progression layered onto it.
-- The target fantasy is the full kill -> loot -> build -> harder-content loop, translated to native GBA controls, screen size and hardware budgets.
-- Path of Exile remains a mechanical/genre reference only. Grindungeonia uses original content and its own GBA-appropriate solutions.
-- Existing verified G0.0 toolchain/build/capture work remains valid.
-- Experimental local G0 combat-room work from before this pivot is not considered canonical until rebuilt against the new acceptance target.
-
-Next milestone: **G0 Combat Room**, proving movement, a primary skill, enemy-pack combat, HP/resource, death/restart, loot drop, equip/inspect and a visible stat improvement in one tiny playable room.
+Next: scripted movement/attack capture, improve sprite readability and animation, then finish G0 loot loop.
